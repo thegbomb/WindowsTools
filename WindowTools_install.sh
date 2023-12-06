@@ -4,9 +4,13 @@
 #          Script to install command line tools
 # ------------------------------------------------------------------
 
+# Install Windows Subsystem for Linux (WSL)
+# https://learn.microsoft.com/en-us/windows/wsl/install-manual
+wsl --install
+
 # Install Winget
 Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
-https://www.microsoft.com/p/app-installer/9nblggh4nns1#activetab=pivot:overviewtab
+# Go to: https://www.microsoft.com/p/app-installer/9nblggh4nns1#activetab=pivot:overviewtab
 
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 # mkdir ~/.ssh && touch ~/.ssh/config
@@ -14,10 +18,11 @@ https://www.microsoft.com/p/app-installer/9nblggh4nns1#activetab=pivot:overviewt
 # ssh-keygen -t rsa -b 4096 -C "email@here.com"
 ssh-keygen -b 4096 -C "email@here.com"
 
-# Right Click Run as Administrator
+# Right Click Run as Administrator on Powershell or Terminal
 # start the ssh-agent in the background
 Get-Service -Name ssh-agent | Set-Service -StartupType Manual
 Start-Service ssh-agent
+# Close Administrator shell
 
 # Normal Powershell window
 ssh-add C:\Users\YOURID\.ssh\id_rsa
@@ -29,8 +34,7 @@ echo >> ~/.ssh/config
 echo Host * >> ~/.ssh/config
 echo    IdentityFile ~/.ssh/id_rsa >> ~/.ssh/config
 
-# Add keys to the required sites then test with:
-#
+# Add keys to the your required sites then test with:
 # ssh -T git@bitbucket.org
 # ssh -T git@github.com
 # ssh -T git@git.drupal.org
@@ -38,7 +42,7 @@ echo    IdentityFile ~/.ssh/id_rsa >> ~/.ssh/config
 
 # https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/
 
-# Open a Terminal in WSL using ubuntu
+# Open a Terminal in WSL using "ubuntu"
 Then Run:
 cp -r /mnt/c/Users/<username>/.ssh ~/.ssh
 chmod 600 ~/.ssh/id_rsa
@@ -53,7 +57,6 @@ ssh-add ~/.ssh/id_rsa
 # ssh -T git@github.com
 # ssh -T git@git.drupal.org
 # ssh -T {{project_name}}@{{repo-id}}.prod.hosting.acquia.com
-
 
 # Leave Ubuntu
 exit
