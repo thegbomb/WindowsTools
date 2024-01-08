@@ -52,6 +52,9 @@ chmod 700 ~/.ssh
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
+# To avoid entering Ubunutu immediately you can also run:
+wsl -e bash -c "cp -r /mnt/c/Users/$USER/.ssh ~/.ssh && chmod 600 ~/.ssh/id_rsa && chmod 700 ~/.ssh && eval '$(ssh-agent -s)' && ssh-add ~/.ssh/id_rsa > /dev/null"
+
 # Test again from inside with:
 # ssh -T git@bitbucket.org
 # ssh -T git@github.com
