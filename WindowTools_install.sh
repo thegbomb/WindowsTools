@@ -61,9 +61,12 @@ ssh-add ~/.ssh/id_rsa
 # Leave Ubuntu
 exit
 
-# Install Powerashell or Windows Terminal
+# Install Powershell or Windows Terminal
 # winget install -e --id Microsoft.PowerShell
 winget install -e --id Microsoft.WindowsTerminal
+
+# Install putty
+winget install -e --id PuTTY.PuTTY
 
 # Install git
 winget install -e --id Git.Git
@@ -100,6 +103,7 @@ winget install -e --id Google.Drive
 # installed microsoft-outlook
 winget install -e --id SlackTechnologies.Slack
 winget install -e --id Zoom.Zoom
+winget install -e --id Discord.Discord
 
 # Notes tools
 # install skitch or other screenshot tool
