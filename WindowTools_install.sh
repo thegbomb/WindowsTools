@@ -124,5 +124,11 @@ winget install -e --id TablePlus.TablePlus
 winget install -e --id Grammarly.Grammarly
 winget install -e --id Spotify.Spotify
 
+#List all programs with an update
+winget update
+
 #Update all programs
 winget upgrade --all
+
+print "Remove programs by using:"
+print "winget uninstall --name {{Name}}"
